@@ -23,7 +23,7 @@ createBoard()
 
   return (
     <div>
-      <h1>nbnbnbnbnbnbnb!</h1>
+      <h1>uuu!</h1>
     </div>
   );
 }
