@@ -28,7 +28,7 @@ const [currentColorArrangment, setCurrentColorArrangment] = useState([])
 
   return (
     <div className="app">
-      <div> className="game">
+      <div className="game">
         {currentColorArrangment.map((candyColor, index) => (
           <img
           key={index}
