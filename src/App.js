@@ -34,8 +34,8 @@ const [currentColorArrangment, setCurrentColorArrangment] = useState([])
           key={index}
           style={{backgroundColor: candyColor}}
 
-          ></img>
-        )}
+          />
+        ))}
 
       </div>
     </div>
