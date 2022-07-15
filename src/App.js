@@ -83,8 +83,7 @@ const createBoard = () => {
     const timer = setInterval(() => {
       cheakForColumsOfFour()
       cheakForColumsOfThree()
-
-      cheakForRowOfFour
+      cheakForRowOfFour()
       cheakForRowOfThree()
       setCurrentColorArrangment([...currentColorArrangment])
     }, 100)
