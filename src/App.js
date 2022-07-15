@@ -94,6 +94,11 @@ const dragDrop = (e) => {
 const dragEnd = () => {
   const squareBeingReplacedID = parseInt(squareBeingReplaced.getAttribute('data-id'))
   const squareBeingDraggedID = parseInt(squareBeingDragged.getAttribute('data-id'))
+  
+  currentColorArrangment[squareBeingReplacedID] = squareBeingDragged.style.backgroundColor
+  currentColorArrangment[squareBeingDraggedID] = squareBeingReplaced.style.backgroundColor
+
+  
   console.log(squareBeingDraggedID, "dragged")
   console.log(squareBeingReplacedID, "replaced")
 }
