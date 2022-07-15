@@ -12,6 +12,18 @@ const candyColors = [
 
 const App = () => {
 const [currentColorArrangment, setCurrentColorArrangment] = useState([]) 
+const cheakForColumsOfFour = () => {
+  for (let i = 0; i < 39; i++) {
+    const colummOfFour = [i, i + width, i + width * 2, i + width * 3]
+    const decidecColor = currentColorArrangment[i]
+
+    if (colummOfFour.every(square => currentColorArrangment[square] === decidecColor)) {
+      colummOfFour.forEach(square => currentColorArrangment[square] = '')
+
+    }
+  }
+}  
+
 const cheakForColumsOfThree = () => {
   for (let i = 0; i < 47; i++) {
     const colummOfThree = [i, i + width, i + width * 2]
@@ -23,6 +35,7 @@ const cheakForColumsOfThree = () => {
     }
   }
 }  
+
 const createBoard = () => {
     const randomColorArrangement = []
     for (let i = 0; i < width * width; i++) {
@@ -38,12 +51,13 @@ const createBoard = () => {
 
    useEffect(() => {
     const timer = setInterval(() => {
+      cheakForColumsOfFour()
       cheakForColumsOfThree()
       setCurrentColorArrangment([...currentColorArrangment])
     }, 100)
     return () => clearInterval(timer)
 
-   }, [cheakForColumsOfThree, currentColorArrangment])
+   }, [cheakForColumsOfFour,cheakForColumsOfThree, currentColorArrangment])
 
 
   return (
