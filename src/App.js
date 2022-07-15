@@ -131,9 +131,9 @@ const createBoard = () => {
           data-id={index}
           draggable={true}
           onDragStart={dragStart}
-          onDragOver={(e) => e.preventDefaul()}
-          onDragEnter={(e) => e.preventDefaul()}
-          onDragLeave={(e) => e.preventDefaul()}
+          onDragOver={(e) => e.preventDefault()}
+          onDragEnter={(e) => e.preventDefault()}
+          onDragLeave={(e) => e.preventDefault()}
           onDrop={dragDrop}
           onDragEnd={dragEnd}
 
