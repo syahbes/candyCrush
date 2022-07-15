@@ -83,8 +83,15 @@ const moveIntoSquareBelow = () => {
   }
 }
 
-
-
+const dragStart = () => {
+  console.log('drag start')
+}
+const dragDrop = () => {
+  console.log('drag Drop')
+}
+const dragEnd = () => {
+  console.log('drag End')
+}
 
 const createBoard = () => {
     const randomColorArrangement = []
@@ -121,6 +128,14 @@ const createBoard = () => {
           key={index}
           style={{backgroundColor: candyColor}}
           alt={candyColor}
+          data-id={index}
+          draggable={true}
+          onDragStart={dragStart}
+          onDragOver={(e) => e.preventDefaul()}
+          onDragEnter={(e) => e.preventDefaul()}
+          onDragLeave={(e) => e.preventDefaul()}
+          onDrop={dragDrop}
+          onDragEnd={dragEnd}
 
           />
         ))}
