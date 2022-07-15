@@ -12,8 +12,10 @@ const candyColors = [
 
 const App = () => {
 const [currentColorArrangment, setCurrentColorArrangment] = useState([]) 
+const [squareBeingDragged, setSquareBeingDragged] = useState(null)
+const [squareBeingReplaced, setSquareBeingReplaced] = useState(null)
 const cheakForColumsOfFour = () => {
-  for (let i = 0; i < 39; i++) {
+  for (let i = 0; i <= 39; i++) {
     const colummOfFour = [i, i + width, i + width * 2, i + width * 3]
     const decidecColor = currentColorArrangment[i]
 
@@ -25,7 +27,7 @@ const cheakForColumsOfFour = () => {
 }  
 
 const cheakForColumsOfThree = () => {
-  for (let i = 0; i < 47; i++) {
+  for (let i = 0; i <= 47; i++) {
     const colummOfThree = [i, i + width, i + width * 2]
     const decidecColor = currentColorArrangment[i]
 
@@ -66,7 +68,7 @@ const cheakForRowOfThree = () => {
 }  
 
 const moveIntoSquareBelow = () => {
-  for (let i = 0; i < 64 - width; i++ ) {
+  for (let i = 0; i <= 55; i++ ) {
     const firstRow = [0, 1, 2, 3, 4, 5, 6, 7]
     const isFirstRow = firstRow.includes(i)
 
@@ -83,14 +85,17 @@ const moveIntoSquareBelow = () => {
   }
 }
 
-const dragStart = () => {
-  console.log('drag start')
+const dragStart = (e) => {
+  setSquareBeingDragged(e.target)
 }
-const dragDrop = () => {
-  console.log('drag Drop')
+const dragDrop = (e) => {
+  setSquareBeingReplaced(e.target)
 }
 const dragEnd = () => {
-  console.log('drag End')
+  const squareBeingReplacedID = parseInt(squareBeingReplaced.getAttribute('data-id'))
+  const squareBeingDraggedID = parseInt(squareBeingDragged.getAttribute('data-id'))
+  console.log(squareBeingDraggedID, "dragged")
+  console.log(squareBeingReplacedID, "replaced")
 }
 
 const createBoard = () => {
